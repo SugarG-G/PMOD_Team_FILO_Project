@@ -1,6 +1,21 @@
 # PMOD Team FILO Project
+컴퓨터비전 기반 화재·얼굴 감지와 로봇(AVR + Raspberry Pi) 제어를 통합하는 프로젝트입니다.
 
-컴퓨터비전 기반 화재·얼굴 감지와 로봇(AVR + Raspberry Pi) 제어를 통합하는 프로젝트입니다. OpenCV를 이용한 감지 모듈, AVR 마이크로컨트롤러 기반 메인 로봇, Raspberry Pi 기반 서브 로봇 코드로 구성되어 있습니다.
+OpenCV를 이용한 감지 모듈 로봇, AVR 마이크로컨트롤러 기반 메인 로봇, Raspberry Pi 기반 모듈, 메인 로봇으로 구성되어 있습니다.
+
+## PPT 슬라이드
+
+![Slide 21](docs/portfolio/PORTFOLIO_slide-21.png)
+
+![Slide 22](docs/portfolio/PORTFOLIO_slide-22.png)
+
+![Slide 23](docs/portfolio/PORTFOLIO_slide-23.png)
+
+![Slide 24](docs/portfolio/PORTFOLIO_slide-24.png)
+
+![Slide 25](docs/portfolio/PORTFOLIO_slide-25.png)
+
+![Slide 26](docs/portfolio/PORTFOLIO_slide-26.png)
 
 ## 시연 영상
 
@@ -18,7 +33,7 @@
     - `haarcascade_fullbody.xml`, `fire_detection.xml`: OpenCV 캐스케이드 파일
   - 비고: 노트북 실행 환경(Jupyter, OpenCV, dlib 등)을 준비한 뒤 노트북에서 단계별 실행
 
-- `fire_dectecting`  (원문 철자 유지)
+- `fire_dectecting`
   - 내용: 실시간 카메라로 화재(불꽃/빨강 계열) 감지
   - 주요 파일:
     - `fireDetection.py`: `fire_detection.xml` 캐스케이드로 화염 영역 검출
@@ -88,27 +103,20 @@
 - 메인 로봇: AVR 툴체인(AVR-GCC/AVRDUDE), 시리얼 연결
 - 서브 로봇: Raspberry Pi + RPi.GPIO, 모터 드라이버, 초음파 센서, LED/버저
 
-## 참고 및 주의
+## 모델 준비/다운로드
 
-- 하드웨어 제어 코드이므로, 실제 장비 연결 상태를 먼저 확인하고 저전력/저속으로 테스트하세요.
-- `fire_dectecting` 디렉토리명은 저장소 원본 표기를 그대로 사용했습니다.
-- 일부 스크립트는 시리얼 포트명, IP 주소, 핀맵 등을 환경에 맞게 수정이 필요할 수 있습니다.
-- 예제 스크립트에는 개선 여지가 있을 수 있으니 실제 운용 전 충분히 검증하세요.
+- dlib 68 얼굴 랜드마크 모델은 저장소에 포함하지 않습니다. 아래 스크립트로 다운로드하세요(비상업적 사용만 허용).
+  - `bash scripts/download_models.sh`
+  - 다운로드 경로: `face_detecting/shape_predictor_68_face_landmarks.dat`
+  - 주의: 연구·교육 목적 외 사용은 원 저작권/데이터셋 조건을 확인해야 합니다.
 
-## 라이선스
+## 사용 및 라이선스
 
-- 추후 추가 예정
+- 사용 범위(저자 코드): 본 저장소의 자체 코드는 대학 졸업 작품 및 연구·개발 목적 사용을 허용합니다. 상업적 사용/배포는 허용하지 않으며, 필요 시 별도 협의가 필요합니다.
+- 서드파티 구성요소는 각 라이선스를 따르며, 본 저장소는 서드파티 자산에 대해 추가 권리를 부여하지 않습니다.
+  - OpenCV Haar Cascade (`face_detecting/haarcascade_fullbody.xml`): BSD-3-Clause 계열 조건(저작권 고지/면책 조항 유지). 상업적 사용 가능.
+  - dlib 라이브러리: Boost Software License(상업/비상업 사용 가능).
+  - dlib 68 얼굴 랜드마크 모델(`face_detecting/shape_predictor_68_face_landmarks.dat`): 일반적으로 iBUG 300‑W 데이터셋으로 학습된 사전학습 모델로 알려져 있으며 비상업적 사용만 허용됩니다. 본 프로젝트에서는 연구·교육 목적으로만 사용하세요(상업적 사용 불가).
+  - 화재 감지 캐스케이드(`fire_detection.xml`): 저장소에 출처/라이선스 정보가 포함되어 있지 않습니다. 외부 배포본 사용 시 원 출처의 라이선스를 확인한 뒤 사용하시기 바랍니다. 확인 전에는 연구·교육 목적으로만 사용하세요.
 
-## PPT 슬라이드
-
-![Slide 21](docs/portfolio/PORTFOLIO_slide-21.png)
-
-![Slide 22](docs/portfolio/PORTFOLIO_slide-22.png)
-
-![Slide 23](docs/portfolio/PORTFOLIO_slide-23.png)
-
-![Slide 24](docs/portfolio/PORTFOLIO_slide-24.png)
-
-![Slide 25](docs/portfolio/PORTFOLIO_slide-25.png)
-
-![Slide 26](docs/portfolio/PORTFOLIO_slide-26.png)
+자세한 서드파티 고지는 `THIRD_PARTY_NOTICES.md`를 참고하세요.
