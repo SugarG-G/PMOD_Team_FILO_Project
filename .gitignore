@@ -1,0 +1,7 @@
+# Ignore large and locally downloaded models
+face_detecting/shape_predictor_68_face_landmarks.dat
+face_detecting/shape_predictor_68_face_landmarks.dat.bz2
+
+# Ignore LibreOffice/PDF exports if re-generated locally
+docs/portfolio/*.pdf
+
